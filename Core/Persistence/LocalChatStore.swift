@@ -1,4 +1,10 @@
 import Foundation
+import os
+
+private let storeLogger = Logger(
+  subsystem: Bundle.main.bundleIdentifier ?? "RealtimeOfflineChat",
+  category: "LocalChatStore"
+)
 
 /// Simple on-disk JSON store (Documents/chat_store.json).
 final class LocalChatStore {
@@ -35,7 +41,7 @@ final class LocalChatStore {
         let data = try JSONEncoder.chat.encode(state)
         try data.write(to: url, options: [.atomic])
       } catch {
-        print("LocalChatStore save error: \(error)")
+        storeLogger.error("LocalChatStore save failed: \(error.localizedDescription, privacy: .public)")
       }
     }
   }

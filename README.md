@@ -1,6 +1,9 @@
 # iOS Real-Time Offline Chat
 
 [![iOS CI](https://github.com/sameh-bakleh/ios-realtime-offline-chat/actions/workflows/ios-ci.yml/badge.svg)](https://github.com/sameh-bakleh/ios-realtime-offline-chat/actions/workflows/ios-ci.yml)
+![Platform](https://img.shields.io/badge/platform-iOS%2016%2B-lightgrey)
+![Swift](https://img.shields.io/badge/Swift-5.9-orange)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 > **GitHub description:** Real-time iOS chat client with message states, local persistence, offline-aware UX, attachment handling, testable architecture, and CI.
 
@@ -10,7 +13,7 @@ Native iOS sample for **Senior iOS Engineer** and **Mobile Engineer** roles — 
 
 | | |
 |---|---|
-| **Repo** | `ios-realtime-offline-chat` |
+| **Repo** | [`ios-realtime-offline-chat`](https://github.com/sameh-bakleh/ios-realtime-offline-chat) |
 | **Scheme** | `RealtimeOfflineChat` |
 | **Platform** | iOS 16+ · Swift 5.9+ |
 | **Stack** | Swift · UIKit · MVVM · Combine · XCTest · GitHub Actions |
@@ -206,7 +209,7 @@ Workflow: [`.github/workflows/ios-ci.yml`](.github/workflows/ios-ci.yml)
 | Step | Action |
 |------|--------|
 | Trigger | Push / PR to `main` or `master`; manual `workflow_dispatch` |
-| Runner | `macos-14` |
+| Runner | `macos-15` |
 | Setup | `brew install xcodegen` → `xcodegen generate` |
 | Simulator | Auto-resolves latest available iOS runtime (iPhone 16) |
 | Build | `xcodebuild build` with `CODE_SIGNING_ALLOWED=NO` |
@@ -222,6 +225,17 @@ Workflow: [`.github/workflows/ios-ci.yml`](.github/workflows/ios-ci.yml)
 - **Mock transport** — all outbound traffic is simulated locally.
 
 Details: [SECURITY.md](SECURITY.md) · [CONTRIBUTING.md](CONTRIBUTING.md)
+
+---
+
+## Contact
+
+| | |
+|---|---|
+| **Email** | [samhbkeng1992@gmail.com](mailto:samhbkeng1992@gmail.com) |
+| **LinkedIn** | [linkedin.com/in/sameh-bakleh](https://www.linkedin.com/in/sameh-bakleh/) |
+| **GitHub** | [github.com/sameh-bakleh](https://github.com/sameh-bakleh) |
+| **Related** | [iOS Marketplace App](https://github.com/sameh-bakleh/ios-marketplace-product-app) · [Laravel Marketplace API](https://github.com/sameh-bakleh/laravel-marketplace-platform) |
 
 ---
 

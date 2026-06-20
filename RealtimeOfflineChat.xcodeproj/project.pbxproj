@@ -460,7 +460,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.realtimeofflinechat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sameh.realtimeofflinechat;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -476,7 +476,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.RealtimeOfflineChatTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sameh.RealtimeOfflineChatTests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RealtimeOfflineChat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RealtimeOfflineChat";
@@ -555,7 +555,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.RealtimeOfflineChatTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sameh.RealtimeOfflineChatTests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RealtimeOfflineChat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RealtimeOfflineChat";
@@ -573,7 +573,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.realtimeofflinechat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sameh.realtimeofflinechat;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";

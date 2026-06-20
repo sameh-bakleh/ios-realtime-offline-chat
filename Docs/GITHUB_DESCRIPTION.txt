@@ -1,0 +1,1 @@
+UIKit iOS chat client with message delivery states, offline queueing, local persistence, attachments, XCTest, and CI — mock transport, no API keys required.

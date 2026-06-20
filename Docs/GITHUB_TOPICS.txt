@@ -1,0 +1,10 @@
+swift
+ios
+uikit
+chat-app
+realtime
+offline-first
+mvvm
+local-persistence
+mobile-engineering
+portfolio

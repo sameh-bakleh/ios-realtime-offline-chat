@@ -1,6 +1,6 @@
 name: RealtimeOfflineChat
 options:
-  bundleIdPrefix: com.example
+  bundleIdPrefix: com.sameh
   deploymentTarget:
     iOS: "16.0"
   developmentLanguage: en
@@ -10,7 +10,7 @@ targets:
     platform: iOS
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.realtimeofflinechat
+        PRODUCT_BUNDLE_IDENTIFIER: com.sameh.realtimeofflinechat
         DEVELOPMENT_TEAM: ""
         SWIFT_VERSION: "5.9"
         TARGETED_DEVICE_FAMILY: "1,2"
