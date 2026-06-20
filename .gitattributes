@@ -1,0 +1,22 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Swift
+*.swift text diff=swift
+
+# Xcode
+*.pbxproj merge=union
+*.xcscheme text
+
+# Markdown & docs
+*.md text
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+
+# Xcode assets
+*.xcassets/** binary

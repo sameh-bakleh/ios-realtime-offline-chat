@@ -1,0 +1,48 @@
+name: RealtimeOfflineChat
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "16.0"
+  developmentLanguage: en
+targets:
+  RealtimeOfflineChat:
+    type: application
+    platform: iOS
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.realtimeofflinechat
+        DEVELOPMENT_TEAM: ""
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        INFOPLIST_FILE: App/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    sources:
+      - path: App
+      - path: Features
+      - path: Core
+    resources:
+      - path: Resources
+  RealtimeOfflineChatTests:
+    type: bundle.unit-test
+    platform: iOS
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: YES
+    sources:
+      - path: RealtimeOfflineChatTests
+    dependencies:
+      - target: RealtimeOfflineChat
+    settings:
+      base:
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/RealtimeOfflineChat.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RealtimeOfflineChat"
+
+schemes:
+  RealtimeOfflineChat:
+    build:
+      targets:
+        RealtimeOfflineChat: all
+    test:
+      targets:
+        - RealtimeOfflineChatTests

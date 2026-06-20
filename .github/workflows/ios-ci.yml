@@ -1,0 +1,72 @@
+name: iOS CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: ios-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build & unit tests
+    runs-on: macos-14
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Resolve simulator destination
+        id: sim
+        run: |
+          DEVICE="iPhone 16"
+          OS_VERSION=$(xcrun simctl list runtimes available -j \
+            | python3 -c "import json,sys; r=json.load(sys.stdin)['runtimes']; ios=sorted([x for x in r if x['isAvailable'] and x['identifier'].startswith('com.apple.CoreSimulator.SimRuntime.iOS')], key=lambda x: x['version'], reverse=True); print(ios[0]['version'].split('-')[0] if ios else '18.0')")
+          echo "destination=platform=iOS Simulator,name=$DEVICE,OS=$OS_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Build
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project RealtimeOfflineChat.xcodeproj \
+            -scheme RealtimeOfflineChat \
+            -destination '${{ steps.sim.outputs.destination }}' \
+            CODE_SIGNING_ALLOWED=NO \
+            | tee build.log
+
+      - name: Unit tests
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -project RealtimeOfflineChat.xcodeproj \
+            -scheme RealtimeOfflineChat \
+            -destination '${{ steps.sim.outputs.destination }}' \
+            CODE_SIGNING_ALLOWED=NO \
+            -resultBundlePath TestResults.xcresult \
+            | tee test.log
+
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ github.run_id }}
+          path: |
+            TestResults.xcresult
+            build.log
+            test.log
+          if-no-files-found: ignore
+          retention-days: 7
